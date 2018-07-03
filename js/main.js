@@ -9,10 +9,11 @@ function init() {
     })
 }
 
-function populateArtists(master) {
+function populateSchedule(master) {
   const category = window.selectionState.category.toLowerCase().trim();
   const jurisdiction = window.selectionState.jurisdiction.toLowerCase().trim();
-  const tableElement = document.getElementById('scheduleTable');
+  const scheduleRows = [];
+
   for (let i = 0; i < master.length; i++) {
     const row = master[i];
     const rowCategory = row.Category.trim();
@@ -24,32 +25,54 @@ function populateArtists(master) {
       const location = row.Location;
       const duration = row.Duration;
       const activity = row.Event;
-      const rowChangedDate = row['Change Date'].trim();
-
-      const newRow = document.createElement('tr');
-
-      const dateTd = document.createElement('td');
-      dateTd.innerText = date;
-      newRow.appendChild(dateTd);
-      const reportingTimeTd = document.createElement('td');
-      reportingTimeTd.innerText = reportingTime;
-      newRow.appendChild(reportingTimeTd);
-      const locationTd = document.createElement('td');
-      locationTd.innerText = location;
-      newRow.appendChild(locationTd);
-      const durationTd = document.createElement('td');
-      durationTd.innerText = duration;
-      newRow.appendChild(durationTd);
-      const activityTd = document.createElement('td');
-      activityTd.innerText = activity;
-      newRow.appendChild(activityTd);
-
-      if (rowChangedDate) {
-        newRow.className = 'changed';
-      }
-
-      tableElement.appendChild(newRow);
+      const changedDate = row['Change Date'].trim();
+      scheduleRows.push({
+        date,
+        reportingTime,
+        location,
+        duration,
+        activity,
+        changedDate
+      });
     }
+    scheduleRows.sort(function(a,b){
+      const comp = new Date(a.date.trim()) - new Date(b.date.trim());
+      if (comp === 0) {
+        return new Date('1970/01/01 ' + a.reportingTime)
+          - new Date('1970/01/01 ' + b.reportingTime);
+      } else {
+        return comp;
+      }
+    });
+  }
+
+  const tableElement = document.getElementById('scheduleTable');
+  for (let i = 0; i < scheduleRows.length; i++) {
+    const row = scheduleRows[i];
+
+    const newRow = document.createElement('tr');
+
+    const dateTd = document.createElement('td');
+    dateTd.innerText = row.date;
+    newRow.appendChild(dateTd);
+    const reportingTimeTd = document.createElement('td');
+    reportingTimeTd.innerText = row.reportingTime;
+    newRow.appendChild(reportingTimeTd);
+    const locationTd = document.createElement('td');
+    locationTd.innerText = row.location;
+    newRow.appendChild(locationTd);
+    const durationTd = document.createElement('td');
+    durationTd.innerText = row.duration;
+    newRow.appendChild(durationTd);
+    const activityTd = document.createElement('td');
+    activityTd.innerText = row.activity;
+    newRow.appendChild(activityTd);
+
+    if (row.changedDate) {
+      newRow.className = 'changed';
+    }
+
+    tableElement.appendChild(newRow);
   }
 }
 
@@ -79,7 +102,7 @@ function populateCategories(elements, master) {
       newButton.innerText = categoryName;
       newButton.onclick = function() {
         window.selectionState.category = categoryName;
-        populateArtists(master);
+        populateSchedule(master);
         Reveal.next();
       };
       const surroundingDiv = document.createElement('DIV');
@@ -120,7 +143,6 @@ function populateJurisdictions(elements, master) {
 }
 
 function showInfo(data, tabletop) {
-  console.log(data);
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
   Reveal.addEventListener( 'slidechanged', function( event ) {
