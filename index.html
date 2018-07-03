@@ -75,6 +75,18 @@
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
+
+			let desiredHeight;
+			let desiredWidth;
+			if(window.innerHeight <= 815 && window.innerWidth <= 600) {
+				console.log('mobile');
+				desiredHeight = 815;
+				desiredWidth = 800;
+			} else {
+				desiredHeight = 1080;
+				desiredWidth = 920;
+			}
+
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -83,7 +95,9 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
 				controls: false,
-				overview: false
+				overview: false,
+				width: desiredWidth,
+				height: desiredHeight
 			});
 		</script>
 	</body>
