@@ -6,9 +6,16 @@ $jubilee-teal: #00a29c;
     font-size: 42pt;
   }
 
-  table {
+  #scheduleTable {
     margin-top: 10px;
     margin-bottom: 40px;
+    // white-space: nowrap;
+    font-family: 'Raleway', sans-serif;
+    font-size: 70%;
+  
+    .changed {
+      background-color: rgba(44,172,227, 0.25);
+    }
   }
 }
 
@@ -24,10 +31,4 @@ $jubilee-teal: #00a29c;
 
 .flat-button {
   background: $jubilee-teal;
-}
-
-#scheduleTable {
-  // white-space: nowrap;
-  font-family: 'Raleway', sans-serif;
-  font-size: 70%;
 }

@@ -2,9 +2,13 @@
   margin-bottom: 1em;
   font-size: 42pt; }
 
-.reveal table {
+.reveal #scheduleTable {
   margin-top: 10px;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 70%; }
+  .reveal #scheduleTable .changed {
+    background-color: rgba(44, 172, 227, 0.25); }
 
 .flat-button-group-container {
   display: -webkit-inline-box; }
@@ -15,7 +19,3 @@
 
 .flat-button {
   background: #00a29c; }
-
-#scheduleTable {
-  font-family: 'Raleway', sans-serif;
-  font-size: 70%; }

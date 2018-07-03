@@ -15,7 +15,6 @@ function populateArtists(master) {
   const tableElement = document.getElementById('scheduleTable');
   for (let i = 0; i < master.length; i++) {
     const row = master[i];
-    // console.log(row);
     const rowCategory = row.Category.trim();
     const rowJurisdiction = row.Jurisdiction.trim();
     if (rowCategory.toLowerCase() === category
@@ -25,6 +24,7 @@ function populateArtists(master) {
       const location = row.Location;
       const duration = row.Duration;
       const activity = row.Event;
+      const rowChangedDate = row['Change Date'].trim();
 
       const newRow = document.createElement('tr');
 
@@ -43,6 +43,10 @@ function populateArtists(master) {
       const activityTd = document.createElement('td');
       activityTd.innerText = activity;
       newRow.appendChild(activityTd);
+
+      if (rowChangedDate) {
+        newRow.className = 'changed';
+      }
 
       tableElement.appendChild(newRow);
     }
@@ -116,7 +120,7 @@ function populateJurisdictions(elements, master) {
 }
 
 function showInfo(data, tabletop) {
-  // console.log(data);
+  console.log(data);
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
   Reveal.addEventListener( 'slidechanged', function( event ) {
@@ -137,7 +141,7 @@ function showInfo(data, tabletop) {
 
 window.addEventListener('DOMContentLoaded', init);
 window.addEventListener('load', function() {
-  const numSeconds = 60 * 3;
+  const numSeconds = 60 * 5;
   let timeoutId;
   function resetTimer() {
     clearTimeout(timeoutId);
