@@ -1,6 +1,22 @@
 var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1zlPU58xhX6_kVVgDNDBPalFKYa9ENiPBbEwJwbZ_ocQ/edit?usp=sharing';
 
+function configureTimeout() {
+  const numSeconds = 60 * 5;
+  let timeoutId;
+  function resetTimer() {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function() { location.reload() }, numSeconds * 1000);
+  }
+  document.body.addEventListener('mousemove', resetTimer);
+  document.body.addEventListener('keydown', resetTimer);
+  document.body.addEventListener('click', resetTimer);
+  document.body.addEventListener('touchstart', resetTimer);
+
+  resetTimer();
+}
+
 function init() {
+  configureTimeout();
   window.selectionState = {};
   Tabletop.init(
     { key: publicSpreadsheetUrl,
@@ -143,6 +159,7 @@ function populateJurisdictions(elements, master) {
 }
 
 function showInfo(data, tabletop) {
+  document.getElementById('enterButton').disabled = false;
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
   Reveal.addEventListener( 'slidechanged', function( event ) {
@@ -162,22 +179,3 @@ function showInfo(data, tabletop) {
 }
 
 window.addEventListener('DOMContentLoaded', init);
-window.addEventListener('load', function() {
-  const numSeconds = 60 * 5;
-  let timeoutId;
-  function resetTimer() {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(function() { location.reload() }, numSeconds * 1000);
-  }
-  document.body.addEventListener('mousemove', resetTimer);
-  document.body.addEventListener('keydown', resetTimer);
-  document.body.addEventListener('click', resetTimer);
-  document.body.addEventListener('touchstart', resetTimer);
-
-  resetTimer();
-});
-
-// function checkin() {
-//   const indices = Reveal.getIndices(document.getElementById('southAmerica'));
-//   Reveal.slide( indices.h, indices.v );
-// }

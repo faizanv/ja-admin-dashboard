@@ -19,3 +19,5 @@
 
 .flat-button {
   background: #00a29c; }
+  .flat-button:disabled {
+    background: gray; }

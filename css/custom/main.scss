@@ -31,4 +31,8 @@ $jubilee-teal: #00a29c;
 
 .flat-button {
   background: $jubilee-teal;
+
+  &:disabled {
+    background: gray;
+  }
 }
