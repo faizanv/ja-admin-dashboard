@@ -6,6 +6,8 @@
 
 		<title>reveal.js</title>
 
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/white.css">
 		<link rel="stylesheet" href="css/flat-button.css">
@@ -26,25 +28,25 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				<section data-background-image="img/BGLogo.png">
 					<header>Welcome To Jubilee Arts!</header>
 					<div class="flat-button-group">
-							<div><button class="flat-button arrow" onclick="Reveal.next()">Enter Here</button></div>
+							<div><button class="flat-button" onclick="Reveal.next()">Enter Here</button></div>
 						</div>
 				</section>
-				<section id="jurisdictionSection">
+				<section id="jurisdictionSection" data-background-image="img/BGLogo.png">
 					<header>
 						Select Your Jurisdiction
 					</header>
 					<div class="flat-button-group-container" id="jurisdictionButtons" />
 				</section>
-				<section id="categorySection">
+				<section id="categorySection" data-background-image="img/BGLogo.png">
 					<header>
 						Select Your Category
 					</header>
 					<div class="flat-button-group" id="categoriesButtons" />
 				</section>
-				<section id="scheduleSection">
+				<section id="scheduleSection" data-background-image="img/BGLogo.png">
 						<header>
 							Your Schedule
 						</header>
@@ -58,7 +60,7 @@
 							</tr>
 						</table>
 						<div class="flat-button-group">
-							<div><button class="flat-button arrow" onclick="Reveal.slide(0,0)">Done</button></div>
+							<div><button class="flat-button" onclick="Reveal.slide(0,0)">Done</button></div>
 						</div>
 				</section>
 			</div>

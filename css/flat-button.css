@@ -5,15 +5,15 @@
   -webkit-font-smoothing: antialiased;
   position: relative;
   padding: .8em 1.4em;
-  padding-right: 4.7em;
-  background: #009ED8;
+  /* padding-right: 4.7em; */
+  /* background: #009ED8; */
   border: none;
   color: white;
   transition: .2s;
   margin-bottom: 5px;
   margin-top: 5px;
 }
-.flat-button:before,
+/* .flat-button:before,
 .flat-button:after {
   position: absolute;
   top: 0;
@@ -28,7 +28,7 @@
   text-align: center;
   transition: .2s;
   transform-origin: 50% 60%;
-}
+} */
 .flat-button:before {
   background: rgba(0, 0, 0, 0.1);
 }

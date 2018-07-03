@@ -71,7 +71,7 @@ function populateCategories(elements, master) {
     const categoryName = categories[i];
     if (categoryName) {
       const newButton = document.createElement('button');
-      newButton.className = 'flat-button arrow';
+      newButton.className = 'flat-button';
       newButton.innerText = categoryName;
       newButton.onclick = function() {
         window.selectionState.category = categoryName;
@@ -95,7 +95,7 @@ function populateJurisdictions(elements, master) {
   for (let i = 0; i < elements.length; i++) {
     const jurisdictionName = elements[i].Jurisdictions;
     const newButton = document.createElement('button');
-    newButton.className = 'flat-button arrow';
+    newButton.className = 'flat-button';
     newButton.innerText = jurisdictionName;
     newButton.onclick = function() {
       window.selectionState.jurisdiction = jurisdictionName;

@@ -1,8 +1,4 @@
-@font-face { font-family: NewBaskerville; font-weight: bold; src: url('../../NewBaskerville-Bold.otf') format("opentype"); }
-
-html {
-  font-family: NewBaskerville !important;
-}
+$jubilee-teal: #00a29c;
 
 .reveal {
   header {
@@ -26,7 +22,12 @@ html {
   }
 }
 
+.flat-button {
+  background: $jubilee-teal;
+}
+
 #scheduleTable {
   // white-space: nowrap;
+  font-family: 'Raleway', sans-serif;
   font-size: 70%;
 }

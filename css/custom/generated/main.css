@@ -1,11 +1,3 @@
-@font-face {
-  font-family: NewBaskerville;
-  font-weight: bold;
-  src: url("../../NewBaskerville-Bold.otf") format("opentype"); }
-
-html {
-  font-family: NewBaskerville !important; }
-
 .reveal header {
   margin-bottom: 1em;
   font-size: 42pt; }
@@ -21,5 +13,9 @@ html {
     margin-left: 10px;
     margin-right: 10px; }
 
+.flat-button {
+  background: #00a29c; }
+
 #scheduleTable {
+  font-family: 'Raleway', sans-serif;
   font-size: 70%; }
