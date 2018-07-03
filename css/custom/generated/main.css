@@ -1,0 +1,25 @@
+@font-face {
+  font-family: NewBaskerville;
+  font-weight: bold;
+  src: url("../../NewBaskerville-Bold.otf") format("opentype"); }
+
+html {
+  font-family: NewBaskerville !important; }
+
+.reveal header {
+  margin-bottom: 1em;
+  font-size: 42pt; }
+
+.reveal table {
+  margin-top: 10px;
+  margin-bottom: 40px; }
+
+.flat-button-group-container {
+  display: -webkit-inline-box; }
+  .flat-button-group-container .flat-button-group {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px; }
+
+#scheduleTable {
+  font-size: 70%; }
