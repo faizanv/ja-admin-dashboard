@@ -1,6 +1,11 @@
 .reveal header {
   margin-bottom: 1em;
-  font-size: 42pt; }
+  font-size: 42pt;
+  display: inline-grid; }
+  .reveal header small {
+    font-size: 20pt;
+    font-style: normal;
+    color: #00a29c; }
 
 .reveal #scheduleTable {
   margin-top: 10px;
@@ -10,14 +15,25 @@
   .reveal #scheduleTable .changed {
     background-color: rgba(44, 172, 227, 0.25); }
 
-.flat-button-group-container {
+.reveal .flat-button-group-container {
   display: -webkit-inline-box; }
-  .flat-button-group-container .flat-button-group {
+  .reveal .flat-button-group-container .flat-button-group {
     display: block;
     margin-left: 10px;
     margin-right: 10px; }
 
-.flat-button {
+.reveal .flat-button {
   background: #00a29c; }
-  .flat-button:disabled {
+  .reveal .flat-button:disabled {
     background: gray; }
+
+.reveal .slides .header {
+  position: absolute;
+  top: -10%;
+  left: 0%;
+  color: gray; }
+
+.reveal .slides .footer {
+  position: absolute;
+  bottom: 50%;
+  left: -50%; }

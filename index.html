@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Jubilee Arts</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
@@ -29,10 +29,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-background-image="img/BGLogo.png">
-					<header>Welcome To Jubilee Arts!</header>
+					<header>
+						Welcome To Jubilee Arts!
+						<small>Updates pending please check back at 08:00</small>
+					</header>
 					<div class="flat-button-group">
 							<div><button  id="enterButton" class="flat-button" onclick="Reveal.next()" disabled>Enter Here</button></div>
-						</div>
+					</div>
 				</section>
 				<section id="jurisdictionSection" data-background-image="img/BGLogo.png">
 					<header>
@@ -41,27 +44,34 @@
 					<div class="flat-button-group-container" id="jurisdictionButtons" />
 				</section>
 				<section id="categorySection" data-background-image="img/BGLogo.png">
+					<!-- <div class="header"><small>Jurisdiction: </small> <span class="jurisdictionCrumbs" /></div> -->
 					<header>
 						Select Your Category
 					</header>
 					<div class="flat-button-group" id="categoriesButtons" />
 				</section>
 				<section id="scheduleSection" data-background-image="img/BGLogo.png">
-						<header>
-							Your Schedule
-						</header>
-						<table id="scheduleTable">
-							<tr>
-								<th>Date</th>
-								<th>Reporting Time</th>
-								<th>Location</th>
-								<th>Duration</th>
-								<th>Activity</th>
-							</tr>
-						</table>
-						<div class="flat-button-group">
-							<div><button class="flat-button" onclick="Reveal.slide(0,0)">Done</button></div>
-						</div>
+					<!-- <div class="header">
+						<small>Jurisdiction: </small>
+						<span class="jurisdictionCrumbs" />
+						<small>Category: </small>
+						<span id="categoryCrumb" />
+					</div> -->
+					<header>
+						Your Schedule
+					</header>
+					<table id="scheduleTable">
+						<tr>
+							<th>Date</th>
+							<th>Reporting Time</th>
+							<th>Location</th>
+							<th>Duration</th>
+							<th>Activity</th>
+						</tr>
+					</table>
+					<div class="flat-button-group">
+						<div><button class="flat-button" onclick="Reveal.slide(0,0)">Done</button></div>
+					</div>
 				</section>
 			</div>
 		</div>
@@ -79,7 +89,6 @@
 			let desiredHeight;
 			let desiredWidth;
 			if(window.innerHeight <= 815 && window.innerWidth <= 600) {
-				console.log('mobile');
 				desiredHeight = 815;
 				desiredWidth = 800;
 			} else {

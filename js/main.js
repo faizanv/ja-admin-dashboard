@@ -25,6 +25,20 @@ function init() {
     })
 }
 
+function clearContent(clearEverything) {
+  const tableElement = document.getElementById('scheduleTable');
+  while (tableElement.childElementCount > 1) {
+    tableElement.removeChild(tableElement.lastChild);
+  }
+
+  if (clearEverything) {
+    const buttonGroup = document.getElementById('categoriesButtons');
+    while (buttonGroup.firstChild) {
+      buttonGroup.removeChild(buttonGroup.firstChild);
+    }
+  }
+}
+
 function populateSchedule(master) {
   const category = window.selectionState.category.toLowerCase().trim();
   const jurisdiction = window.selectionState.jurisdiction.toLowerCase().trim();
@@ -109,6 +123,7 @@ function getCategoriesForJurisdiction(master) {
 
 function populateCategories(elements, master) {
   const buttonGroup = document.getElementById('categoriesButtons');
+  const categoryCrumb = document.getElementById('categoryCrumb');
   const categories = getCategoriesForJurisdiction(master);
   for (let i = 0; i < categories.length; i++) {
     const categoryName = categories[i];
@@ -117,8 +132,10 @@ function populateCategories(elements, master) {
       newButton.className = 'flat-button';
       newButton.innerText = categoryName;
       newButton.onclick = function() {
+        clearContent(false);
         window.selectionState.category = categoryName;
         populateSchedule(master);
+        // categoryCrumb.innerText = categoryName;
         Reveal.next();
       };
       const surroundingDiv = document.createElement('DIV');
@@ -132,6 +149,7 @@ function populateJurisdictions(elements, master) {
   const buttonGroup = document.getElementById('jurisdictionButtons');
   const col1 = document.createElement('DIV');
   const col2 = document.createElement('DIV');
+  const jurisdictionCrumbs = document.getElementsByClassName('jurisdictionCrumbs');
   col1.className = 'flat-button-group';
   col2.className = 'flat-button-group';
   let left = true;
@@ -141,8 +159,12 @@ function populateJurisdictions(elements, master) {
     newButton.className = 'flat-button';
     newButton.innerText = jurisdictionName;
     newButton.onclick = function() {
+      clearContent(true);
       window.selectionState.jurisdiction = jurisdictionName;
       populateCategories(elements, master);
+      // for (let j = 0; j < jurisdictionCrumbs.length; j++) {
+      //   jurisdictionCrumbs[j].innerText = jurisdictionName;
+      // }
       Reveal.next();
     };
     const surroundingDiv = document.createElement('DIV');
@@ -156,26 +178,27 @@ function populateJurisdictions(elements, master) {
   }
   buttonGroup.appendChild(col1);
   buttonGroup.appendChild(col2);
+
 }
 
 function showInfo(data, tabletop) {
-  document.getElementById('enterButton').disabled = false;
+  // document.getElementById('enterButton').disabled = false;
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
-  Reveal.addEventListener( 'slidechanged', function( event ) {
-    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-    if (event.previousSlide.id === 'scheduleSection') {
-      const tableElement = document.getElementById('scheduleTable');
-      while (tableElement.childElementCount > 1) {
-        tableElement.removeChild(tableElement.lastChild);
-      } 
-    } else if (event.currentSlide.id === 'jurisdictionSection') {
-      const buttonGroup = document.getElementById('categoriesButtons');
-      while (buttonGroup.firstChild) {
-        buttonGroup.removeChild(buttonGroup.firstChild);
-      }
-    }
-  } );
+  // Reveal.addEventListener( 'slidechanged', function( event ) {
+  //   // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+  //   if (event.previousSlide.id === 'scheduleSection') {
+  //     const tableElement = document.getElementById('scheduleTable');
+  //     while (tableElement.childElementCount > 1) {
+  //       tableElement.removeChild(tableElement.lastChild);
+  //     } 
+  //   } else if (event.currentSlide.id === 'jurisdictionSection') {
+  //     const buttonGroup = document.getElementById('categoriesButtons');
+  //     while (buttonGroup.firstChild) {
+  //       buttonGroup.removeChild(buttonGroup.firstChild);
+  //     }
+  //   }
+  // } );
 }
 
 window.addEventListener('DOMContentLoaded', init);
