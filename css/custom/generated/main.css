@@ -13,7 +13,7 @@
   margin: 0; }
 
 .reveal header {
-  margin-bottom: 1em;
+  margin-bottom: 0.4em;
   font-size: 42pt;
   display: inline-grid; }
   .reveal header small {
@@ -43,8 +43,8 @@
 
 .reveal .slides .header {
   position: absolute;
-  top: -10%;
-  left: 0%;
+  top: -60px;
+  left: 0px;
   color: gray; }
 
 .reveal .slides .footer {

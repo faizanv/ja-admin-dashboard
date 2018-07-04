@@ -22,7 +22,7 @@ $jubilee-teal: #00a29c;
   }
 
   header {
-    margin-bottom: 1em;
+    margin-bottom: 0.4em;
     font-size: 42pt;
     display: inline-grid;
 
@@ -66,8 +66,8 @@ $jubilee-teal: #00a29c;
   .slides {
     .header {
       position: absolute;
-      top: -10%;
-      left: 0%;
+      top: -60px;
+      left: 0px;
       color: gray;
     }
 
