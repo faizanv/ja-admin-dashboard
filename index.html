@@ -36,6 +36,10 @@
 					<div class="flat-button-group">
 							<div><button  id="enterButton" class="flat-button" onclick="Reveal.next()" disabled>Enter Here</button></div>
 					</div>
+					<img src="img/snapcode.png" width="250px" id="snapcode" />
+					<div>
+						<p>https://tinyurl.com/ja-artist-kiosk</p>
+					</div>
 				</section>
 				<section id="jurisdictionSection" data-background-image="img/BGLogo.png">
 					<header>
@@ -44,19 +48,19 @@
 					<div class="flat-button-group-container" id="jurisdictionButtons" />
 				</section>
 				<section id="categorySection" data-background-image="img/BGLogo.png">
-					<!-- <div class="header"><small>Jurisdiction: </small> <span class="jurisdictionCrumbs" /></div> -->
+					<div class="header"><small>Jurisdiction: </small> <span class="jurisdictionCrumbs" /></div>
 					<header>
 						Select Your Category
 					</header>
 					<div class="flat-button-group" id="categoriesButtons" />
 				</section>
 				<section id="scheduleSection" data-background-image="img/BGLogo.png">
-					<!-- <div class="header">
+					<div class="header">
 						<small>Jurisdiction: </small>
-						<span class="jurisdictionCrumbs" />
+						<span class="jurisdictionCrumbs"></span>
 						<small>Category: </small>
-						<span id="categoryCrumb" />
-					</div> -->
+						<span id="categoryCrumb"></span>
+					</div>
 					<header>
 						Your Schedule
 					</header>
@@ -100,8 +104,7 @@
 				controls: false,
 				overview: false,
 				width: desiredWidth,
-				height: desiredHeight,
-				touch: false
+				height: desiredHeight
 			});
 		</script>
 	</body>

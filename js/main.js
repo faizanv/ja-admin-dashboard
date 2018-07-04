@@ -135,7 +135,7 @@ function populateCategories(elements, master) {
         clearContent(false);
         window.selectionState.category = categoryName;
         populateSchedule(master);
-        // categoryCrumb.innerText = categoryName;
+        categoryCrumb.innerText = categoryName;
         Reveal.next();
       };
       const surroundingDiv = document.createElement('DIV');
@@ -162,9 +162,9 @@ function populateJurisdictions(elements, master) {
       clearContent(true);
       window.selectionState.jurisdiction = jurisdictionName;
       populateCategories(elements, master);
-      // for (let j = 0; j < jurisdictionCrumbs.length; j++) {
-      //   jurisdictionCrumbs[j].innerText = jurisdictionName;
-      // }
+      for (let j = 0; j < jurisdictionCrumbs.length; j++) {
+        jurisdictionCrumbs[j].innerText = jurisdictionName;
+      }
       Reveal.next();
     };
     const surroundingDiv = document.createElement('DIV');
@@ -182,7 +182,7 @@ function populateJurisdictions(elements, master) {
 }
 
 function showInfo(data, tabletop) {
-  // document.getElementById('enterButton').disabled = false;
+  document.getElementById('enterButton').disabled = false;
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
   // Reveal.addEventListener( 'slidechanged', function( event ) {

@@ -1,3 +1,17 @@
+.reveal section img {
+  border: none;
+  box-shadow: none; }
+
+.reveal section #snapcode {
+  margin-top: 100px; }
+
+.reveal p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24pt;
+  color: #2cace3;
+  text-decoration: underline;
+  margin: 0; }
+
 .reveal header {
   margin-bottom: 1em;
   font-size: 42pt;
