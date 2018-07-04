@@ -48,20 +48,26 @@
 					<div class="flat-button-group-container" id="jurisdictionButtons" />
 				</section>
 				<section id="categorySection" data-background-image="img/BGLogo.png">
-					<div class="header"><small>Jurisdiction: </small> <span class="jurisdictionCrumbs" /></div>
+					<!-- <div class="header"><small>Jurisdiction: </small> <span class="jurisdictionCrumbs" /></div> -->
 					<header>
+						<small class="jurisdictionCrumbs"></small>
 						Select Your Category
 					</header>
 					<div class="flat-button-group" id="categoriesButtons" />
 				</section>
 				<section id="scheduleSection" data-background-image="img/BGLogo.png">
-					<div class="header">
+					<!-- <div class="header">
 						<small>Jurisdiction: </small>
 						<span class="jurisdictionCrumbs"></span>
 						<small>Category: </small>
 						<span id="categoryCrumb"></span>
-					</div>
+					</div> -->
 					<header>
+						<small>
+							<span class="jurisdictionCrumbs"></span>
+							-
+							<span id="categoryCrumb"></span>
+						</small>
 						Your Schedule
 					</header>
 					<table id="scheduleTable">
