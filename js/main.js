@@ -182,7 +182,10 @@ function populateJurisdictions(elements, master) {
 }
 
 function showInfo(data, tabletop) {
-  document.getElementById('enterButton').disabled = false;
+  const enterButton = document.getElementById('enterButton');
+  enterButton.disabled = false;
+  enterButton.removeChild(enterButton.lastChild);
+  enterButton.innerText = 'Touch To Begin';
   populateJurisdictions(data.Meta.elements, data['Master Data'].elements);
   // populateCategories(data.Meta.elements, data['Master Data'].elements);
   // Reveal.addEventListener( 'slidechanged', function( event ) {
